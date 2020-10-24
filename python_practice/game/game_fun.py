@@ -38,7 +38,7 @@ if __name__=="__main__":
 
     # 敌人的攻击力用randint方法随机挑选一个值
     enemy_power = random.randint(190, 210)
-    print(fight(enemy_hp, enemy_power))
+    fight(enemy_hp, enemy_power)
 
 
 
