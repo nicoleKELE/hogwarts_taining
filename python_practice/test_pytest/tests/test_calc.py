@@ -5,9 +5,11 @@
 import sys
 sys.path.append(r"D:\Nicole\PycharmProjects\nicole_workspace")
 
-import pytest
 from hogwarts_training.python_practice.test_pytest.core.calc import Calc
+import pytest
+import allure
 
+@allure.feature("乘除法测试用例")
 class TestCalc:
     def setup_class(self):
         self.calc = Calc()
@@ -17,6 +19,7 @@ class TestCalc:
         [2, 3, 6], [0, 2, 0], [2.1, 1.2, 2.52], [2.1, 3, 6.3],
         [0.1, 0.1, 0.01], [0.01, 0.01, 0.00], [-1, -2, 2], [-1, 3, -3],
         [-0.1, 0.2, -0.02], [99999, 99999, 9999800001]])
+    @allure.story("正常值乘法")
     def test_mul(self, a, b, c):
         assert self.calc.mul(a, b) == c
 
@@ -24,6 +27,7 @@ class TestCalc:
     @pytest.mark.parametrize('a, b', [
         ["A", "B"], ["A", 0.1]
     ])
+    @allure.story("异常值乘法")
     def test_mul_exception(self, a, b):
         with pytest.raises(TypeError):
             assert self.calc.mul(a, b)
@@ -36,6 +40,7 @@ class TestCalc:
         [-9, -3, 3], [-2.1, 4, -0.53], [-7, -3, 2.33],
         [0, 5, 0]
     ])
+    @allure.story("正常值除法")
     def test_div(self, a, b, c):
         assert self.calc.div(a, b) == c
 
@@ -45,11 +50,13 @@ class TestCalc:
         [2, 0],
         [-0.5, 0]
     ])
+    @allure.story("异常值除法")
     def test_div_exception(self, a, b):
         with pytest.raises((TypeError, ZeroDivisionError)):
             assert self.calc.div(a, b)
 
     # 流程示例
+    @allure.story("流程示例")
     def test_process(self):
         assert self.calc.mul(2, 3) == 6
         assert self.calc.div(6, 2) == 3
