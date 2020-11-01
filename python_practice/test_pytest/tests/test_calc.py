@@ -3,7 +3,7 @@
 # @Author  : Nicole
 # @File    : test_calc.py
 import pytest
-from hogwarts_taining.python_practice.test_pytest.core.calc import Calc
+from hogwarts_training.python_practice.test_pytest.core.calc import Calc
 
 class TestCalc:
     def setup_class(self):
