@@ -2,6 +2,9 @@
 # @Time    : 2020/11/1 11:29
 # @Author  : Nicole
 # @File    : test_calc.py
+import sys
+sys.path.append(r"D:\Nicole\PycharmProjects\nicole_workspace")
+
 import pytest
 from hogwarts_training.python_practice.test_pytest.core.calc import Calc
 
